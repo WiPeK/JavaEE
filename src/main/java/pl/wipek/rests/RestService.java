@@ -2,8 +2,8 @@ package pl.wipek.rests;
 
 import pl.wipek.dictionaries.ejb.DictionaryService;
 
-import javax.ejb.EJB;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @ApplicationScoped
 public class RestService extends Application{
 
-    @EJB
+    @Inject
     private DictionaryService dictionaryService;
 
     @GET

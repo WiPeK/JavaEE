@@ -3,7 +3,7 @@
 
     <persistence-unit name="pl.wipek.dictionaries.database">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <!--<class>pl.wipek.dictionaries.entity.DictionaryPl</class>-->
+        <class>pl.wipek.dictionaries.entity.DictionaryPl</class>
         <!--<exclude-unlisted-classes>false</exclude-unlisted-classes>-->
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
