@@ -28,7 +28,6 @@ public class RestService extends Application{
     @GET
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
     public Response getAll() {
-        System.out.println(this.dictionaryService);
         return Response.ok(this.dictionaryService.getAll()).build();
     }
 
