@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Krzysztof Adamczyk on 17.08.2017.
  */
 @Path("/")
-@ApplicationPath("/api")
+@ApplicationPath("/")
 @XmlRootElement
 @ApplicationScoped
 public class RestService extends Application{

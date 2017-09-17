@@ -1,5 +1,6 @@
 package pl.wipek.shared.entity;
 
+
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
