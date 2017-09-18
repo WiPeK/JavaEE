@@ -1,5 +1,6 @@
 package pl.wipek.rests;
 
+
 import pl.wipek.dictionaries.ejb.DictionaryService;
 
 import javax.enterprise.context.ApplicationScoped;

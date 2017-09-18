@@ -3,7 +3,9 @@ package pl.wipek.shared.ejb;
 import pl.wipek.shared.entity.BaseEntity;
 import pl.wipek.shared.entity.Order;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -16,6 +18,8 @@ import java.util.List;
 /**
  * @Author Krzysztof Adamczyk on 20.08.2017.
  */
+@Named
+@ApplicationScoped
 public class GenericDao {
     /*
 	 * A "copy" of the Hibernate's API as this doesn't exist

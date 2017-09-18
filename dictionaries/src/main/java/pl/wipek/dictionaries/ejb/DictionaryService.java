@@ -11,12 +11,12 @@ import java.util.List;
 /**
  * @author Krzysztof Adamczyk on 20.08.2017.
  */
-@Named
+@Named()
 @ApplicationScoped
 public class DictionaryService {
 
     @Inject
-    GenericDao genericDao;
+    private GenericDao genericDao;
 
     public List<DictionaryPl> getAll() {
         return this.genericDao.findAll(DictionaryPl.class);
