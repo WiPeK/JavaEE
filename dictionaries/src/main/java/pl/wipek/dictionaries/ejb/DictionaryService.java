@@ -1,7 +1,7 @@
 package pl.wipek.dictionaries.ejb;
 
 import pl.wipek.dictionaries.entity.DictionaryPl;
-import pl.wipek.shared.ejb.GenericDao;
+import pl.wipek.database.ejb.GenericDao;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

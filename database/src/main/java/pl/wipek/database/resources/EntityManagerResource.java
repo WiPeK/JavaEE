@@ -1,4 +1,4 @@
-package pl.wipek.shared.resources;
+package pl.wipek.database.resources;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;

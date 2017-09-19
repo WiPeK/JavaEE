@@ -11,6 +11,9 @@
 
     <modules>
         <module>dictionaries</module>
+        <module>accounts</module>
+        <module>shared</module>
+        <module>database</module>
     </modules>
 
     <properties>
