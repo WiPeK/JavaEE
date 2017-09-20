@@ -1,4 +1,4 @@
-package pl.wipek.database.entities;
+package pl.wipek.users.entities;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;

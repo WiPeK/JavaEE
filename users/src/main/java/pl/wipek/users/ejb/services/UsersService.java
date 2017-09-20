@@ -1,4 +1,7 @@
-package pl.wipek.users.ejb;
+package pl.wipek.users.ejb.services;
+
+import pl.wipek.users.ejb.dao.UsersDAO;
+import pl.wipek.users.entities.Users;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -13,9 +16,9 @@ import java.util.List;
 public class UsersService {
 
     @Inject
-    GenericDao dao;
+    UsersDAO usersDao;
 
     public List<Users> getAll() {
-        return this.dao.findAll(Users.class);
+        return this.usersDao.getAll();
     }
 }
