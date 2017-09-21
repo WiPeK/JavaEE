@@ -10,10 +10,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <!--<module>dictionaries</module>-->
         <module>users</module>
-        <!--<module>shared</module>-->
-        <!--<module>database</module>-->
         <module>api</module>
     </modules>
 
