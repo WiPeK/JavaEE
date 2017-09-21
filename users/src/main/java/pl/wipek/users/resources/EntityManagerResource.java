@@ -14,7 +14,7 @@ public class EntityManagerResource {
     @Produces
     @ApplicationScoped
     public EntityManager createEntityManager() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("pl.wipek.dictionaries.database.users");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("pl.wipek.database.users");
         return emf.createEntityManager();
     }
 }

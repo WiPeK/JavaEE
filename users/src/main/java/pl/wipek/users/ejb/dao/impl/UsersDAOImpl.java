@@ -6,6 +6,8 @@ import pl.wipek.users.entities.Users;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
 import javax.ws.rs.NotFoundException;
 import java.util.List;
 
@@ -52,7 +54,7 @@ public class UsersDAOImpl implements UsersDAO {
         if (userFromDatabase != null) {
             entityManager.remove(userFromDatabase);
         } else {
-            throw new NotFoundException("Can not remove object wchich doesn't exists");
+            throw new NotFoundException("Can not remove object which doesn't exists");
         }
         return false;
     }
@@ -65,6 +67,12 @@ public class UsersDAOImpl implements UsersDAO {
      */
     @Override
     public boolean delete(String id) {
+        Users user = this.find(id);
+        if (user != null) {
+            entityManager.remove(user);
+        } else {
+            throw new NotFoundException("Can not remove object which doesn't exists");
+        }
         return false;
     }
 
@@ -76,7 +84,7 @@ public class UsersDAOImpl implements UsersDAO {
      */
     @Override
     public Users find(String id) {
-        return null;
+        return entityManager.find(Users.class, id);
     }
 
     /**
@@ -86,6 +94,9 @@ public class UsersDAOImpl implements UsersDAO {
      */
     @Override
     public List<Users> getAll() {
-        return null;
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Users> criteriaQuery = criteriaBuilder.createQuery(Users.class);
+        criteriaQuery.from(Users.class);
+        return entityManager.createQuery(criteriaQuery).getResultList();
     }
 }
