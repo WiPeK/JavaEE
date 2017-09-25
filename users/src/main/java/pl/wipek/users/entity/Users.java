@@ -1,4 +1,4 @@
-package pl.wipek.users.entities;
+package pl.wipek.users.entity;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -7,17 +7,15 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * @Author Krzysztof Adamczyk on 19.09.2017.
+ * @author Krzysztof Adamczyk on 24.09.2017.
  */
 @Entity
 public class Users implements Serializable {
-    private static final long serialVersionUID = -6580012241620579129L;
-
     private String idUsers;
     private String login;
 
     @Id
-    @Column(name = "ID_USERS")
+    @Column(name = "ID_USERS", nullable = false)
     public String getIdUsers() {
         return idUsers;
     }
@@ -27,7 +25,7 @@ public class Users implements Serializable {
     }
 
     @Basic
-    @Column(name = "LOGIN")
+    @Column(name = "LOGIN", nullable = false, length = 20)
     public String getLogin() {
         return login;
     }

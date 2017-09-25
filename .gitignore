@@ -103,3 +103,5 @@ derby.log
 .factorypath
 
 /apache-tomcat-9.0.0.M26
+/apache-tomee-plume-7.0.2
+/apache-tomee-plus-7.0.3

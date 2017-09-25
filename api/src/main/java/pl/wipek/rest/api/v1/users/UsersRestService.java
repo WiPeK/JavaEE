@@ -2,8 +2,8 @@ package pl.wipek.rest.api.v1.users;
 
 import pl.wipek.users.ejb.services.UsersService;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @ApplicationScoped
 public class UsersRestService extends Application {
 
-    @Inject
+    @EJB
     private UsersService usersService;
 
     @GET
