@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import java.lang.reflect.ParameterizedType;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,8 +18,7 @@ public abstract class JpaDao<K, E> implements Dao<K, E> {
 
     protected Class<E> entityClass;
 
-    @PersistenceContext
-    protected EntityManager entityManager;
+    protected abstract EntityManager getEntityManager();
 
     public JpaDao() {
         ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
@@ -33,7 +33,7 @@ public abstract class JpaDao<K, E> implements Dao<K, E> {
      */
     @Override
     public void persist(E entity) {
-        entityManager.persist(entity);
+        getEntityManager().persist(entity);
     }
 
     /**
@@ -45,7 +45,7 @@ public abstract class JpaDao<K, E> implements Dao<K, E> {
      */
     @Override
     public E merge(E entity) {
-        return entityManager.merge(entity);
+        return getEntityManager().merge(entity);
     }
 
     /**
@@ -58,7 +58,7 @@ public abstract class JpaDao<K, E> implements Dao<K, E> {
     public boolean remove(K id) throws NotFoundException {
         E entity = this.findById(id);
         if (entity != null) {
-            entityManager.remove(entity);
+            getEntityManager().remove(entity);
             return true;
         } else {
             throw new NotFoundException("Can not remove object which doesn't exists");
@@ -73,7 +73,7 @@ public abstract class JpaDao<K, E> implements Dao<K, E> {
      */
     @Override
     public E findById(K id) throws NotFoundException {
-        E entity = entityManager.find(entityClass, id);
+        E entity = getEntityManager().find(entityClass, id);
         if (entity != null) {
             return entity;
         }
@@ -88,11 +88,10 @@ public abstract class JpaDao<K, E> implements Dao<K, E> {
     @Override
     @SuppressWarnings("unchecked")
     public List<E> getAll() {
-        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaBuilder criteriaBuilder = getEntityManager().getCriteriaBuilder();
         CriteriaQuery<E> criteriaQuery = criteriaBuilder.createQuery(entityClass);
         criteriaQuery.from(entityClass);
-        List<E> res = entityManager.createQuery(criteriaQuery).getResultList();
+        List<E> res = getEntityManager().createQuery(criteriaQuery).getResultList();
         return res;
     }
 }
-
