@@ -3,13 +3,13 @@ package pl.wipek.shared.ejb.dao;
 import javassist.NotFoundException;
 
 import javax.ejb.Remote;
+import javax.ejb.RemoteHome;
 import java.rmi.RemoteException;
 import java.util.List;
 
 /**
  * @author Krzysztof Adamczyk on 21.09.2017.
  */
-@Remote
 public interface Dao<K, E> {
 
     /**

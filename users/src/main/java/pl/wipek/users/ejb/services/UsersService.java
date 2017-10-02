@@ -19,27 +19,21 @@ import java.util.Optional;
 @Stateless
 public class UsersService {
 
-    @PersistenceContext(unitName = "pl.wipek.database.users")
-    protected EntityManager entityManager;
+    @EJB(beanInterface = UsersDAO.class, beanName = "JpaUsersDao")
+    private UsersDAO usersDao;
 
-//    @EJB(beanInterface = UsersDAO.class, beanName = "JpaUsersDao")
-//    private UsersDAO usersDao;
-//
-//    public Optional<Users> findById(String id) {
-//        Optional<Users> result = null;
-//        try {
-//            result = Optional.of(this.usersDao.findById(id));
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return result;
-//    }
-
-//    public List<Users> getAll() {
-//        return this.usersDao.getAll();
-//    }
-
-    public Users abc() {
-        return entityManager.find(Users.class, "E667E6C480394F45BC377D3F2DCFA4B9");
+    public Optional<Users> findById(String id) {
+        Optional<Users> result = null;
+        try {
+            result = Optional.of(this.usersDao.findById(id));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
+
+    public List<Users> getAll() {
+        return this.usersDao.getAll();
+    }
+
 }
