@@ -10,15 +10,12 @@ import javax.servlet.ServletContextListener;
 
 import oracle.jdbc.OracleDriver;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
-/**
- * @author Krzysztof Adamczyk on 01.10.2017.
- */
 public class OjdbcDriverRegistrationListener implements ServletContextListener {
-    private static final Logger LOG = LoggerFactory
-            .getLogger(OjdbcDriverRegistrationListener.class);
+//    private static final Logger LOG = LoggerFactory
+//            .getLogger(OjdbcDriverRegistrationListener.class);
 
     private Driver driver = null;
 
@@ -46,16 +43,16 @@ public class OjdbcDriverRegistrationListener implements ServletContextListener {
         try {
             if (!skipRegistration) {
                 DriverManager.registerDriver(driver);
-            } else {
-                LOG.debug("driver was registered automatically");
-            }
-            LOG.info(String.format("registered jdbc driver: %s v%d.%d", driver,
-                    driver.getMajorVersion(), driver.getMinorVersion()));
+            }// else {
+//                LOG.debug("driver was registered automatically");
+            //}
+            //LOG.info(String.format("registered jdbc driver: %s v%d.%d", driver,
+            //        driver.getMajorVersion(), driver.getMinorVersion()));
         } catch (SQLException e) {
-            LOG.error(
-                    "Error registering oracle driver: " +
-                            "database connectivity might be unavailable!",
-                    e);
+           // LOG.error(
+//                    "Error registering oracle driver: " +
+//                            "database connectivity might be unavailable!",
+//                    e);
             throw new RuntimeException(e);
         }
     }
@@ -70,16 +67,16 @@ public class OjdbcDriverRegistrationListener implements ServletContextListener {
         if (this.driver != null) {
             try {
                 DriverManager.deregisterDriver(driver);
-                LOG.info(String.format("deregistering jdbc driver: %s", driver));
+                //LOG.info(String.format("deregistering jdbc driver: %s", driver));
             } catch (SQLException e) {
-                LOG.warn(
-                        String.format("Error deregistering driver %s", driver),
-                        e);
+//                LOG.warn(
+//                        String.format("Error deregistering driver %s", driver),
+//                        e);
             }
             this.driver = null;
-        } else {
-            LOG.warn("No driver to deregister");
-        }
+        } //else {
+//            LOG.warn("No driver to deregister");
+        //}
 
     }
 
