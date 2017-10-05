@@ -13,6 +13,7 @@
         <module>users</module>
         <module>api</module>
         <module>shared</module>
+        <module>requestdatacollector</module>
     </modules>
 
     <properties>
