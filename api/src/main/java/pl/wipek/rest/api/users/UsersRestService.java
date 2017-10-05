@@ -1,4 +1,4 @@
-package pl.wipek.rest.api.v1.users;
+package pl.wipek.rest.api.users;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,8 +18,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * @author Krzysztof Adamczyk on 20.09.2017.
  */
-@Path("/")
-@ApplicationPath("/")
+@Path("/users")
+@ApplicationPath("/api/")
 @ApplicationScoped
 @XmlRootElement
 public class UsersRestService extends Application {
@@ -33,7 +33,6 @@ public class UsersRestService extends Application {
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
     @Interceptors(RequestInterceptor.class)
     public Response getAll(@Context Request request) {
-        logger.info(request.toString());
         return Response.ok(usersService.getAll()).build();
     }
 }
