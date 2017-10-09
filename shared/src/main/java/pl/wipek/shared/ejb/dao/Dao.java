@@ -1,6 +1,7 @@
 package pl.wipek.shared.ejb.dao;
 
 import javassist.NotFoundException;
+import pl.wipek.shared.ejb.dao.exceptions.DaoException;
 
 import javax.ejb.Remote;
 import javax.ejb.RemoteHome;
@@ -10,14 +11,16 @@ import java.util.List;
 /**
  * @author Krzysztof Adamczyk on 21.09.2017.
  */
+@Remote
 public interface Dao<K, E> {
 
     /**
      * Saves an E entity to database
      * @param entity
      * @return newly created entity
+     * @throws DaoException
      */
-    public void persist(E entity);
+    public E persist(E entity) throws DaoException;
 
     /**
      * Marges objects with the same identifier within a session into a newly
@@ -25,16 +28,18 @@ public interface Dao<K, E> {
      *
      * @param entity
      * @return a newly created instance merged.
+     * @throws DaoException
      */
-    public E merge(E entity);
+    public E merge(E entity) throws DaoException;
 
     /**
      * Deletes the entity.
      *
      * @param id of entity
      * @throws NotFoundException if the user does not exist in database.
+     * @throws DaoException
      */
-    public boolean remove(K id) throws NotFoundException;
+    public boolean remove(K id) throws NotFoundException, DaoException;
 
     /**
      * Deletes the entity.

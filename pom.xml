@@ -26,7 +26,6 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <maven.test.skip>false</maven.test.skip>
         <skipTests>false</skipTests>
-        <hibernate.version>5.2.10.Final</hibernate.version>
     </properties>
 
     <dependencies>
@@ -122,6 +121,14 @@
             <groupId>javax.ws.rs</groupId>
             <artifactId>javax.ws.rs-api</artifactId>
             <version>2.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.8.4</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/junit/junit -->

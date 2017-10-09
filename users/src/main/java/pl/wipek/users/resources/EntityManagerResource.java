@@ -9,6 +9,7 @@ import javax.persistence.Persistence;
 /**
  * @author Krzysztof Adamczyk on 20.08.2017.
  */
+@Deprecated
 public class EntityManagerResource {
 
     @Produces

@@ -10,7 +10,6 @@ import javax.transaction.Transactional;
 /**
  * @author Krzysztof Adamczyk on 19.09.2017.
  */
-@Remote
 public interface UsersDAO extends Dao<String, Users> {
     // todo add specific method
 }
